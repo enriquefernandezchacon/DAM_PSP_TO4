@@ -8,6 +8,7 @@ public class Main {
     private static final String SERVER_UV = "ftp.uv.es";
     private static final String SERVER_FREEBSD = "ftp.freebsd.org";
     private static final String SERVER_UNAVARRA = "ftp.unavarra.es";
+    private static final String SERVER_LOCAL = "localhost";
     private static final int PORT = 21;
     private static final String USERNAME = "anonymous";
     private static final String PASSWORD = "";
@@ -33,7 +34,7 @@ public class Main {
             case 3 -> contectarFTP(SERVER_FREEBSD, USERNAME, PASSWORD);
             case 4 -> {
                 String[] datos = Consola.solicitarDatosLogin();
-                contectarFTP(SERVER_UV, datos[0], datos[1]);
+                contectarFTP(SERVER_LOCAL, datos[0], datos[1]);
             }
             case 5 -> System.out.println("Hasta luego!");
             default -> System.out.println("Opcion no valida");
