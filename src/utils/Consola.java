@@ -38,4 +38,16 @@ public class Consola {
         datos[1] = Entrada.cadena();
         return datos;
     }
+
+    public static void imprimirArchivo(String mensaje) {
+        System.out.println("ARCHIVO:" + mensaje);
+    }
+
+    public static void imprimirDirectorio(String mensaje) {
+        System.out.println("DIRECTORIO:" + mensaje);
+    }
+
+    public static void imprimirError(String servidor) {
+        System.err.println("ERROR: No se ha podido contactar con el servidor: " + servidor);
+    }
 }

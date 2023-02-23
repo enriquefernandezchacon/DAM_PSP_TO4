@@ -14,8 +14,6 @@ public class Main {
     private static final String PASSWORD = "";
 
     public static void main(String[] args) {
-
-        new Simple().run();
         int opcion;
         do {
             Consola.presentarPrograma();
@@ -23,8 +21,6 @@ public class Main {
             opcion = Consola.recibirOpcion();
             ejecutarOpcion(opcion);
         } while (opcion != 5);
-
-
     }
 
     private static void ejecutarOpcion(int opcion) {
@@ -48,29 +44,20 @@ public class Main {
             ftpClient.login(usuario, contrasena);
             FTPFile[] files = ftpClient.listFiles("/");
             for (FTPFile file : files) {
-                System.out.println(file.getName());
                 if (file.isDirectory()) {
-                    listFiles(ftpClient, file.getName());
+                    Consola.imprimirDirectorio(file.getName());
+                } else {
+                    Consola.imprimirArchivo(file.getName());
                 }
             }
             ftpClient.logout();
         } catch (IOException e) {
-            e.printStackTrace();
+            Consola.imprimirError(servidor);
         } finally {
             try {
                 ftpClient.disconnect();
             } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private static void listFiles(FTPClient ftpClient, String path) throws IOException {
-        FTPFile[] files = ftpClient.listFiles(path);
-        for (FTPFile file : files) {
-            System.out.println(path + "/" + file.getName());
-            if (file.isDirectory()) {
-                listFiles(ftpClient, path + "/" + file.getName());
+                Consola.imprimirError(servidor);
             }
         }
     }
