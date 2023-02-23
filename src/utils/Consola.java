@@ -2,15 +2,16 @@ package utils;
 
 public class Consola {
 
+    //Impedimos instanciar la clase, solo accedermos a sus metodos
     private Consola() {
     }
 
     //Metodo para presentar el programa
-
     public static void presentarPrograma() {
         System.out.println("Programa para conectarse a servidores FTP");
     }
 
+    //Metodo para mostrar el menu
     public static void imprimirMenu() {
         System.out.println("1. Listar servidor de la universidad de Valenica");
         System.out.println("2. Listar servidor de la universidad de Navarra");
@@ -20,7 +21,6 @@ public class Consola {
     }
 
     //Metodo para recibir la eleccion del menu
-
     public static int recibirOpcion() {
         int opcion;
         System.out.print("Ingrese una opcion: ");
@@ -29,7 +29,6 @@ public class Consola {
     }
 
     //Metodo para solicitar al usuario datos para el login
-
     public static String[] solicitarDatosLogin() {
         String[] datos = new String[3];
         System.out.print("Ingrese el usuario: ");
@@ -39,6 +38,7 @@ public class Consola {
         return datos;
     }
 
+    //Metodos para imprimir los distintos tipos de mensajes
     public static void imprimirArchivo(String mensaje) {
         System.out.println("ARCHIVO:" + mensaje);
     }
